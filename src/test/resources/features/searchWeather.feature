@@ -2,9 +2,8 @@
 
 Feature: Search weather in a city
 
-  Scenario: Verify weather forecast is correctly shown for the given city
+  Scenario: Verify results return when search with a valid city name
     Given go to OpenWeatherMap URL
     When enter text into Search
     And press Enter key
-    And click the item in result
-    Then shown weather forecast for the given city
+    Then show results match with the given city
