@@ -7,9 +7,8 @@ import io.cucumber.testng.CucumberOptions;
         features = "src/test/resources/features",
         glue = "stepdefinition",
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
-        tags = ""
+        tags = "@searchWeather"
 )
 
 public class TestRunner extends AbstractTestNGCucumberTests {
-
 }

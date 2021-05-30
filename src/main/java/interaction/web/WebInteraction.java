@@ -167,6 +167,15 @@ public class WebInteraction extends SelectElementByType {
     }
 
     /**
+     * Get value of Element's attribute
+     */
+
+    public static String getAttributeValue(WebDriver driver, SelectorType type, String locator, String attribute) {
+        WebElement element = driver.findElement(getBy(type, locator));
+        return element.getAttribute(attribute);
+    }
+
+    /**
      * Keyboard action
      */
     public static void sendFunctionKeyToElement(WebDriver driver, SelectorType type, String locator, Keys key) {
@@ -209,6 +218,21 @@ public class WebInteraction extends SelectElementByType {
 
         if (!element.isSelected()) {
             element.click();
+        }
+    }
+
+    public static boolean isElementDisplayed(WebDriver driver, SelectorType type, String locator) {
+        overrideGlobalTimeout(driver, shortTimeout);
+        List<WebElement> elements = driver.findElements(getBy(type, locator));
+        if (elements.size() == 0) {
+            overrideGlobalTimeout(driver, longTimeout);
+            return false;
+        } else if (elements.get(0).isDisplayed()) {
+            overrideGlobalTimeout(driver, shortTimeout);
+            return true;
+        } else {
+            overrideGlobalTimeout(driver, longTimeout);
+            return false;
         }
     }
 }

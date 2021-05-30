@@ -12,17 +12,22 @@ public class CommonPage {
 
     private static final String XPATH_SEARCH_ON_MENU = "//div[@id='desktop-menu']//input[@name='q']";
 
-    public CommonPage(){
+    public CommonPage() {
         this.driver = Web.getDriver();
     }
 
-    public void enterIntoSearch(String data){
-        WebInteraction.waitForElementVisible(driver, XPATH, XPATH_SEARCH_ON_MENU);
+    public void enterIntoSearch(String data) {
+        WebInteraction.waitForElementClickable(driver, XPATH, XPATH_SEARCH_ON_MENU);
         WebInteraction.enterToElement(driver, XPATH, XPATH_SEARCH_ON_MENU, data);
     }
 
     public void pressEnterKey() {
-        WebInteraction.waitForElementVisible(driver, XPATH, XPATH_SEARCH_ON_MENU);
+        WebInteraction.waitForElementClickable(driver, XPATH, XPATH_SEARCH_ON_MENU);
         WebInteraction.sendFunctionKeyToElement(driver, XPATH, XPATH_SEARCH_ON_MENU, Keys.ENTER);
+    }
+
+    public String getPlaceHolderValueOfSearch() {
+        WebInteraction.waitForElementVisible(driver, XPATH, XPATH_SEARCH_ON_MENU);
+        return WebInteraction.getAttributeValue(driver, XPATH, XPATH_SEARCH_ON_MENU, "placeholder");
     }
 }
