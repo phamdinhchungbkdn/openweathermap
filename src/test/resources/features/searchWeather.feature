@@ -2,9 +2,35 @@
 
 Feature: Search weather in a city
 
-  Scenario: Verify weather forecast is correctly shown for the given city
+  Scenario: Verify place holder of Search weather should be correct
     Given go to OpenWeatherMap URL
-    When enter text into Search
+    Then place holder of Search tex box should be "Weather in your city"
+
+  Scenario Outline: Verify input data should be populated exactly in Search
+    Given go to OpenWeatherMap URL
+    When enter "<city>" into Search
     And press Enter key
-    And click the item in result
-    Then shown weather forecast for the given city
+    Then input data should be populated as "<city>"
+    Examples:
+      | city        |
+      | ho chi minh |
+
+
+  Scenario Outline: Verify results return when search with a valid city name
+    Given go to OpenWeatherMap URL
+    When enter "<city>" into Search
+    And press Enter key
+    Then show results match with the given city
+    Examples:
+      | city  |
+      | hanoi |
+
+
+  Scenario Outline: Verify results not found when search with a invalid city name
+    Given go to OpenWeatherMap URL
+    When enter "<city>" into Search
+    And press Enter key
+    Then show not found with the invalid city
+    Examples:
+      | city    |
+      | abc xyz |
