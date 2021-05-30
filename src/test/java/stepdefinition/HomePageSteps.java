@@ -15,14 +15,13 @@ public class HomePageSteps {
         homePage.goToHomePage(config().url());
     }
 
-    @When("enter text into Search")
-    public void enterTextIntoSearch() {
-        homePage.enterIntoSearch("ha noi");
+    @When("enter {string} into Search")
+    public void enterIntoSearch(String city) {
+        homePage.enterIntoSearch(city);
     }
 
     @When("press Enter key")
     public void pressEnterKey() {
         homePage.pressEnterKey();
     }
-
 }

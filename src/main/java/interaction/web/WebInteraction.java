@@ -1,6 +1,5 @@
 package interaction.web;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import static config.ConfigurationManager.config;
 
@@ -159,6 +159,11 @@ public class WebInteraction extends SelectElementByType {
         locator = String.format(locator, (Object) dynamicValue);
         WebElement element = driver.findElement(getBy(type, locator));
         return element.getText();
+    }
+
+    public static List<String> getTextOfElements(WebDriver driver, SelectorType type, String locator) {
+        List<WebElement> elementList = driver.findElements(getBy(type, locator));
+        return elementList.stream().map(WebElement::getText).collect(Collectors.toList());
     }
 
     /**
