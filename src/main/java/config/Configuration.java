@@ -39,4 +39,7 @@ public interface Configuration extends Config {
     @Key("test.data")
     String testData();
 
+    @Key("app.id")
+    String appId();
+
 }

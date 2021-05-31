@@ -15,6 +15,7 @@ public class HomePageSteps {
     public void goToOpenWeatherMapURL() {
         homePage = new HomePage();
         homePage.goToHomePage(config().url());
+        homePage.waitForLoaderToDisappear();
     }
 
     @When("enter {string} into Search")
