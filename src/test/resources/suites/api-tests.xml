@@ -3,12 +3,12 @@
 
     <listeners>
         <listener class-name="listener.TestListener"/>
-        <listener class-name="listener.AnnotationTransformer"/>
+        <listener class-name="listener.RetryListener"/>
     </listeners>
 
     <test name="API Automation Testing">
         <classes>
-            <class name="api.Verify_SuccessfulResponse_When_ValidCity_ValidAppId"/>
+            <class name="api.ApiTestSearchWeatherByCity"/>
         </classes>
     </test>
 </suite>

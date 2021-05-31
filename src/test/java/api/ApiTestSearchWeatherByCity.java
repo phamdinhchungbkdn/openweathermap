@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 
 import static report.ExtentTestManager.startTest;
 
-public class Verify_SuccessfulResponse_When_ValidCity_ValidAppId extends Api {
+public class ApiTestSearchWeatherByCity extends Api {
     private static CityInfo cityInfo;
     private static Error error;
 
@@ -29,7 +29,7 @@ public class Verify_SuccessfulResponse_When_ValidCity_ValidAppId extends Api {
 
     @Test
     public void API002_Verify_FailureResponse_When_Passed_ValidCity_EmptyAppId(Method method) {
-        startTest(method.getName(), "Verify successful response when passed valid city name and app Id");
+        startTest(method.getName(), "Verify successful response when passed valid city name and app Id is empty");
 
         Response response = ApiMethods.getWeather("ho chi minh", "");
 
@@ -42,11 +42,11 @@ public class Verify_SuccessfulResponse_When_ValidCity_ValidAppId extends Api {
 
     @Test
     public void API003_Verify_FailureResponse_When_Passed_EmptyCity_ValidAppId(Method method) {
-        startTest(method.getName(), "Verify successful response when passed valid city name and app Id");
+        startTest(method.getName(), "Verify successful response when passed empty city name and valid app Id");
 
         Response response = ApiMethods.getWeather("", "987934a0c9428b08392a40ced7f46105");
 
-        Assert.assertEquals(response.getStatusCode(), 444);
+        Assert.assertEquals(response.getStatusCode(), 400);
         error = response.getBody().as(Error.class);
 
         Assert.assertEquals(error.message,
@@ -55,7 +55,7 @@ public class Verify_SuccessfulResponse_When_ValidCity_ValidAppId extends Api {
 
     @Test
     public void API004_Verify_FailureResponse_When_Passed_EmptyCity_EmptyAppId(Method method) {
-        startTest(method.getName(), "Verify successful response when passed valid city name and app Id");
+        startTest(method.getName(), "Verify successful response when passed city name and app Id are empty");
 
         Response response = ApiMethods.getWeather("", "");
 
@@ -68,7 +68,7 @@ public class Verify_SuccessfulResponse_When_ValidCity_ValidAppId extends Api {
 
     @Test
     public void API005_Verify_FailureResponse_When_Passed_InvalidCity_ValidAppId(Method method) {
-        startTest(method.getName(), "Verify successful response when passed valid city name and app Id");
+        startTest(method.getName(), "Verify successful response when passed valid city name is invalid and valid app Id");
 
         Response response = ApiMethods.getWeather("abc xyz", "987934a0c9428b08392a40ced7f46105");
 

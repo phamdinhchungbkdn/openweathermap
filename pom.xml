@@ -35,7 +35,7 @@
 
         <extentreports-version>5.0.8</extentreports-version>
 
-        <suite>tests.xml</suite>
+        <suite>web-tests.xml</suite>
     </properties>
 
     <dependencies>
@@ -143,6 +143,13 @@
             <version>2.8.1</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
 
     </dependencies>
 

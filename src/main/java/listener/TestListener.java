@@ -46,18 +46,6 @@ public class TestListener implements ITestListener {
         //ExtentReports log operation for failed tests.
         Throwable exception = iTestResult.getThrowable();
         getTest().log(Status.FAIL, exception);
-
-//        //Get driver from BaseTest and assign to local webdriver variable.
-//        Object testClass = iTestResult.getInstance();
-//        WebDriver driver = ((BaseTest) testClass).getDriver();
-//
-//        //Take base64Screenshot screenshot for extent reports
-//        String base64Screenshot =
-//                "data:image/png;base64," + ((TakesScreenshot) Objects.requireNonNull(driver)).getScreenshotAs(OutputType.BASE64);
-//
-//        //ExtentReports log and screenshot operations for failed tests.
-//        getTest().log(Status.FAIL, "Test Failed",
-//                getTest().addScreenCaptureFromBase64String(base64Screenshot).getModel().getMedia().get(0));
     }
 
     @Override
