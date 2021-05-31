@@ -1,10 +1,6 @@
 package listener;
 
 import com.aventstack.extentreports.Status;
-import driver.web.Web;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
@@ -12,8 +8,8 @@ import static report.ExtentTestManager.getTest;
 
 public class Retry implements IRetryAnalyzer {
 
-    private        int count  = 0;
-    private static int maxTry = 1; //Run the failed test 2 times
+    private int count = 0;
+    private static final int maxTry = 1; //Run the failed test 2 times
 
     @Override
     public boolean retry(ITestResult iTestResult) {

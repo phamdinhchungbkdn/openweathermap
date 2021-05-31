@@ -15,7 +15,7 @@ import static config.ConfigurationManager.config;
 public class JsonReader {
 
     private final String dataPath = config().testData() + "city.json";
-    private List<City> cityList;
+    private final List<City> cityList;
 
     public JsonReader() {
         cityList = getCityData();

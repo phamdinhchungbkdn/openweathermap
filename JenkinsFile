@@ -8,7 +8,7 @@ node {
 
     stage('Build and Test'){
         bat encoding: 'UTF-8', label: '', script: 'mvn clean'
-        bat encoding: 'UTF-8', label: '', script: 'mvn test'
+        bat encoding: 'UTF-8', label: '', script: 'mvn test -Pweb-execution -Dtestng.dtd.http=true'
     }
 
 }
