@@ -9,6 +9,7 @@ import org.aeonbits.owner.Config.LoadType;
         "system:properties",
         "classpath:general.properties",
         "classpath:local.properties",
+        "classpath:grid.properties",
         "classpath:endpoint.properties"})
 public interface Configuration extends Config {
 
@@ -20,6 +21,12 @@ public interface Configuration extends Config {
 
     @Key("headless")
     Boolean headless();
+
+    @Key("grid.url")
+    String gridUrl();
+
+    @Key("grid.port")
+    String gridPort();
 
     @Key("url")
     String url();
