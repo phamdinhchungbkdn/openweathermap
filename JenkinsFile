@@ -1,0 +1,14 @@
+node {
+
+    stage('Get Code'){
+    git credentialsId: 'chung_github_repo', url: 'https://github.com/phamdinhchungbkdn/openweathermap'
+    timestamp{}
+    ansiColor('xterm'){}
+    }
+
+    stage('Build and Test'){
+        bat encoding: 'UTF-8', label: '', script: 'mvn clean'
+        bat encoding: 'UTF-8', label: '', script: 'mvn test'
+    }
+
+}
