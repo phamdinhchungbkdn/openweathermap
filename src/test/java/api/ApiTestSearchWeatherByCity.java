@@ -20,10 +20,12 @@ public class ApiTestSearchWeatherByCity extends Api {
     public void API001_Verify_SuccessfulResponse_When_Passed_ValidCity_ValidAppId(Method method) {
         startTest(method.getName(), "Verify successful response when passed valid city name and app Id");
 
-        Response response = ApiMethods.getWeather("ho chi minh", "987934a0c9428b08392a40ced7f46105");
+        Response response = ApiMethods.getWeather("ha noi", "987934a0c9428b08392a40ced7f46105");
 
         Assert.assertEquals(response.getStatusCode(), 200);
         cityInfo = response.getBody().as(CityInfo.class);
+
+        Assert.assertEquals(cityInfo.name, "Hanoi");
 
     }
 

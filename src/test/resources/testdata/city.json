@@ -1,0 +1,32 @@
+[
+  {
+    "input": "hanoi",
+    "expected": [
+      {
+        "name": "Ha Noi, VN"
+      },
+      {
+        "name": "Thủ Ðô Hà Nội, VN"
+      }
+    ]
+  },
+  {
+    "input": "ho chi minh",
+    "expected": [
+      {
+        "name": "Thanh pho Ho Chi Minh, VN"
+      },
+      {
+        "name": "Thành phố Hồ Chí Minh, VN"
+      }
+    ]
+  },
+  {
+    "input": "da nang",
+    "expected": [
+      {
+        "name": "Da Nang, VN"
+      }
+    ]
+  }
+]
