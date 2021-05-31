@@ -1,21 +1,26 @@
 package stepdefinition;
 
+import data.model.City;
+import data.reader.FileReaderManager;
 import io.cucumber.java.en.Then;
 import object.FindPage;
 import org.testng.Assert;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FindPageSteps {
     private FindPage findPage;
-    private List<String> expectedResult = Arrays.asList("Ha Noi, VN", "Thủ Ðô Hà Nội, VN");
 
-    @Then("show results match with the given city")
-    public void showResultsMatchWithTheGivenCity() {
+    @Then("show results match with the given {string}")
+    public void showResultsMatchWithTheGivenCity(String city) {
         findPage = new FindPage();
-        List<String> cityList = findPage.getCityList();
-        Assert.assertEquals(cityList, expectedResult);
+        List<String> actualList = findPage.getCityList();
+
+        City cityData = FileReaderManager.getInstance().getJsonReader().getCity(city);
+        List<String> expectedResult = cityData.expected.stream().map(n -> n.name).collect(Collectors.toList());
+
+        Assert.assertEquals(actualList, expectedResult);
     }
 
     @Then("show not found with the invalid city")

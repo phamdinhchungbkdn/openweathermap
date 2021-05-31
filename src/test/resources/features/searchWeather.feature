@@ -20,10 +20,12 @@ Feature: Search weather in a city
     Given go to OpenWeatherMap URL
     When enter "<city>" into Search
     And press Enter key
-    Then show results match with the given city
+    Then show results match with the given "<city>"
     Examples:
-      | city  |
-      | hanoi |
+      | city        |
+      | hanoi       |
+      | ho chi minh |
+      | da nang     |
 
 
   Scenario Outline: Verify results not found when search with a invalid city name

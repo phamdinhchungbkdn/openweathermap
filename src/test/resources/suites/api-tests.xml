@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="API Automation Testing" parallel="tests" thread-count="3">
+
+    <listeners>
+        <listener class-name="listener.TestListener"/>
+        <listener class-name="listener.RetryListener"/>
+    </listeners>
+
+    <test name="API Automation Testing">
+        <classes>
+            <class name="api.ApiTestSearchWeatherByCity"/>
+        </classes>
+    </test>
+</suite>
